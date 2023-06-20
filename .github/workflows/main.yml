@@ -14,7 +14,7 @@ on:
       hciconnection:
         # Host/IP adress input from users
         description: HCI Connection
-        default: "BMC.POPUP-MAINFRAME.COM"
+        default: BMC.POPUP-MAINFRAME.COM
         required: true
       port:
         # passticket input from the user.
