@@ -14,7 +14,7 @@ on:
       hciconnection:
         # Host/IP adress input from users
         description: HCI Connection
-        default: "10.10.1.172"
+        default: "BMC.POPUP-MAINFRAME.COM"
         required: true
       port:
         # passticket input from the user.
@@ -24,7 +24,7 @@ on:
       testFolderPath:
         # passticket input from the user.
         description: Test Location Path
-        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\DEMOPGM2C\DEMOPGM02C1\Tests
+        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\DEMOPGM2C\DEMOPGM02C1\Tests\Scenarios
         required: true
       testScenario:
         # Test Scenario name
@@ -34,7 +34,7 @@ on:
       jclpath:
       # jcl runner
         description: jcl runner name
-        default: Runner.jcl
+        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\DEMOPGM2C\DEMOPGM02C1\Tests\JCL\Runner.jcl
         required: true
       workspace:
         # Workspcae location of the customer input from the user.
@@ -67,5 +67,5 @@ jobs:
       # Runs a single command using the runners shell
       - run: echo "${{ secrets.HCI_PASSWORD }}"
       - name: Calling the CLI function
-        run: ${{ inputs.clipath }}\\TotalTestCLI.bat -command=runtest -data "${{ inputs.workspace }}" -host "${{ inputs.hciconnection }}" -port "${{ inputs.port }}" -u "${{ inputs.userId }}" -p "${{ secrets.HCI_PASSWORD }}" -s "${{ inputs.repository_server }}" -cesu "${{ inputs.userId }}" -cesp "${{ secrets.HCI_PASSWORD }}" -project "${{ inputs.testFolderPath }}" -ts "${{inputs.testScenario}}" -jcl "${{inputs.jclpath}}"-R -G -v "6" -l "jenkins" -loglevel "info"
+        run: ${{ inputs.clipath }}\\TotalTestFTCLI.bat -host "${{ inputs.hciconnection }}" -port "${{ inputs.port }}" -u "${{ inputs.userId }}" -p "${{ secrets.HCI_PASSWORD }}" -file "${{ inputs.testFolderPath }}" --runner-jcl "${{inputs.jclpath}}"
      
