@@ -24,7 +24,7 @@ on:
       testFolderPath:
         # passticket input from the user.
         description: Test Location Path
-        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\DEMOPGM02C\DEMOPGM02C1\Tests
+        default: C:\Users\sandhata\shirisha dodla\TOTAL_TEST\DEMOPGM2C\DEMOPGM02C1\Tests
         required: true
       testScenario:
         # Test Scenario name
